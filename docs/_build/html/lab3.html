@@ -355,16 +355,13 @@ document.write(`
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lab-3-4-create-firewall-policy">Lab 3.4 Create Firewall Policy</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">Description</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">Validate</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">Expected Results</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#validate-ingress-policy">Validate - Ingress policy</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#define-egress-policy">Define Egress Policy</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">Expected Results</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lab-3-5">Lab 3.5</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">Description</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">Validate</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">Expected Results</a></li>
-</ul>
-</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lab-3-summary">Lab 3 Summary</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lab-3-learning-check">Lab 3 Learning Check</a></li>
 </ul>
             </nav>
         </div>
@@ -1166,8 +1163,8 @@ document.write(`
 <h3>Description<a class="headerlink" href="#id6" title="Link to this heading">#</a></h3>
 <p>Now that the rules are in place, create a Policy to enforce those rules, showcasing the power of the CX10K to apply stateful firewall rules at scale and effectively govern east-west traffic.</p>
 </section>
-<section id="id7">
-<h3>Validate<a class="headerlink" href="#id7" title="Link to this heading">#</a></h3>
+<section id="validate-ingress-policy">
+<h3>Validate - Ingress policy<a class="headerlink" href="#validate-ingress-policy" title="Link to this heading">#</a></h3>
 <ol class="arabic simple">
 <li><p>In the <strong>Configuration Menu</strong>, go to <strong>Policy/Policies</strong>.</p></li>
 </ol>
@@ -1264,21 +1261,114 @@ document.write(`
 </table>
 </div>
 </section>
-<section id="id8">
-<h3>Expected Results<a class="headerlink" href="#id8" title="Link to this heading">#</a></h3>
+<section id="define-egress-policy">
+<h3>Define Egress Policy<a class="headerlink" href="#define-egress-policy" title="Link to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p>Using the same process, add another policy for the <strong>egreess</strong> policy.</p></li>
+<li><p>Under the Actions Menu, select <strong>Add</strong> to create a policy and configure the following parameters:</p></li>
+</ol>
+<p><img alt="Policy" src="_images/pol1.png" /><br />
+<em>Fig. Policy</em></p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p></p></th>
+<th class="head"><p></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Step 1. Name</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>Name</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">dsa-egress-policy</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>Click <strong>NEXT</strong> to continue</p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p></p></th>
+<th class="head"><p></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Step 2. Policies</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>Type</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">distributed</span> <span class="pre">firewall</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>Click <strong>NEXT</strong> to continue</p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Step 3.</p>
+<p>Add rules to the policy by using the <strong>Actions</strong> menu and select <strong>Add</strong>. You will add existing rules to this policy, make sure they are in the correct order.</p>
+<p>Using the arrows on the left move the rules into the correct order. Be sure to move the allow-all rule to the bottom of the sequence (rule #4)</p>
+<p>Click <strong>NEXT</strong> to continue</p>
+<p><img alt="Arange Rules" src="_images/pol2.png" /><br />
+<em>Fig. Arange Rules</em></p>
+<ol class="arabic simple" start="3">
+<li><p>Add the enforcer information.</p></li>
+</ol>
+<p><img alt="Arange Rules" src="_images/pol3.png" /><br />
+<em>Fig. Enforcers</em></p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p></p></th>
+<th class="head"><p></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Step 1. Name</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>Faric</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">dsa</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>Policy Distribution Type</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">leaf</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>Direction</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">egress</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>VRF</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">over</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>Networks</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">Pick</span> <span class="pre">both</span> <span class="pre">vlan</span> <span class="pre">10</span> <span class="pre">&amp;</span> <span class="pre">20</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>Click <strong>ADD</strong> , next to the <strong>CLEAR</strong> button</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>Click <strong>NEXT</strong> and <strong>APPLY</strong></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>NOTE: If you don’t see both policies are healthy, click on the refresh wheel next to the actions menu</p>
+</div>
+</section>
+<section id="id7">
+<h3>Expected Results<a class="headerlink" href="#id7" title="Link to this heading">#</a></h3>
+<p>Verify the policies.
+<img alt="Arange Rules" src="_images/pol5.png" /><br />
+<em>Fig. Policies</em></p>
 </section>
 </section>
-<section id="lab-3-5">
-<h2>Lab 3.5<a class="headerlink" href="#lab-3-5" title="Link to this heading">#</a></h2>
-<section id="id9">
-<h3>Description<a class="headerlink" href="#id9" title="Link to this heading">#</a></h3>
+<section id="lab-3-summary">
+<h2>Lab 3 Summary<a class="headerlink" href="#lab-3-summary" title="Link to this heading">#</a></h2>
 </section>
-<section id="id10">
-<h3>Validate<a class="headerlink" href="#id10" title="Link to this heading">#</a></h3>
-</section>
-<section id="id11">
-<h3>Expected Results<a class="headerlink" href="#id11" title="Link to this heading">#</a></h3>
-</section>
+<section id="lab-3-learning-check">
+<h2>Lab 3 Learning Check<a class="headerlink" href="#lab-3-learning-check" title="Link to this heading">#</a></h2>
 </section>
 </section>
 
@@ -1367,16 +1457,13 @@ document.write(`
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lab-3-4-create-firewall-policy">Lab 3.4 Create Firewall Policy</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">Description</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">Validate</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">Expected Results</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#validate-ingress-policy">Validate - Ingress policy</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#define-egress-policy">Define Egress Policy</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">Expected Results</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lab-3-5">Lab 3.5</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">Description</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">Validate</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">Expected Results</a></li>
-</ul>
-</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lab-3-summary">Lab 3 Summary</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lab-3-learning-check">Lab 3 Learning Check</a></li>
 </ul>
   </nav></div>
 
