@@ -33,7 +33,7 @@ The following table represents the Management IP Addresses we will use to access
 | Aruba Fabric Composer (AFC) | 7.01 |  
 | Policy Services Manager | 1.80.1-T-6 |  
 | CX Switches | DL 10.13.1010 |  
-| ESXi | 7.0.x |  
+ 
 
 
 ## Lab 1.3 Pre-Staged Workshop Environment  

@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -341,28 +341,28 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#expected-results">Expected Results</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lab-3-2-configure-endpoints">Lab 3.2 Configure Endpoints</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Description</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Validate</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Expected Results</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lab-3-2-configure-endpoint-groups">Lab 3.2 Configure Endpoint Groups</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">Overview</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Validate</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Expected Results</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lab-3-3-create-firewall-rules">Lab 3.3 Create Firewall Rules</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Description</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Validate</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">Expected Results</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Description</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Validate</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Expected Results</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lab-3-4-create-firewall-policy">Lab 3.4 Create Firewall Policy</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">Description</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">Validate</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">Expected Results</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">Description</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">Validate</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">Expected Results</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lab-3-5">Lab 3.5</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">Description</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">Validate</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id12">Expected Results</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">Description</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">Validate</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">Expected Results</a></li>
 </ul>
 </li>
 </ul>
@@ -397,7 +397,7 @@ document.write(`
 <p><img alt="Distributed Services Menu" src="_images/lab3-distributed-services-menu.png" /><br />
 <em>Fig. Distributed Services Menu</em></p>
 <ol class="arabic simple" start="2">
-<li><p>Click <strong>Configure VRFs</strong> to jump to the VRFs page under <strong>Configuration/Routing</strong></p></li>
+<li><p>Click <strong>Configure VRFs</strong> to navigate to the VRFs page under <strong>Configuration/Routing</strong></p></li>
 <li><p>In the Configure VRFs page, within the right-hand pane for Distributed Services, choose <strong>dsa/over</strong> as the selected VRF in the <strong>Distributed Services Setup</strong> drop-down, then select <strong>Configure Networks</strong> just below the VRF selection drop-down menu</p></li>
 </ol>
 <div class="admonition note">
@@ -524,18 +524,18 @@ document.write(`
 </ul>
 </section>
 </section>
-<section id="lab-3-2-configure-endpoints">
-<h2>Lab 3.2 Configure Endpoints<a class="headerlink" href="#lab-3-2-configure-endpoints" title="Link to this heading">#</a></h2>
-<section id="id1">
-<h3>Description<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
+<section id="lab-3-2-configure-endpoint-groups">
+<h2>Lab 3.2 Configure Endpoint Groups<a class="headerlink" href="#lab-3-2-configure-endpoint-groups" title="Link to this heading">#</a></h2>
+<section id="overview">
+<h3>Overview<a class="headerlink" href="#overview" title="Link to this heading">#</a></h3>
 <p>Endpoint group objects represent source and destination IP addresses referenced in firewall rules that can represent one or multiple devices. <strong>Dynamic</strong> endpoint groups can be <strong>auto-populated</strong> based on the assignment of <strong>vSphere Tags</strong> to VMs identified through AFC’s vCenter integration along with the PSM. All VMs assigned the same tag should be auto-populated as a member of the dynamic group when on a <strong>distributed vSwitch</strong>.  <em>When member IP addresses change or tag assignments are changed in vCenter, dynamic group objects are updated automatically</em>.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>In this workshop you will be using workloads that are learned from vSphere</p>
+<p>In this workshop you will see workloads that are learned from vSphere. You can ignore them, and create your own!</p>
 </div>
 </section>
-<section id="id2">
-<h3>Validate<a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
+<section id="id1">
+<h3>Validate<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
 <ol class="arabic simple">
 <li><p>In the <strong>Guided Setup Pane</strong>, under the <strong>Distributed Services</strong> tab, click <strong>Configure Policy</strong>, followed by <strong>Endpoint Groups</strong> on the left-hand menu.</p></li>
 </ol>
@@ -545,9 +545,10 @@ document.write(`
 <p class="admonition-title">Note</p>
 <p>Also accessed via Configuration/Policy/Endpoint Groups</p>
 </div>
-<ol class="arabic simple" start="2">
-<li><p>To proceed with manual endpoint group creation, begin by clicking <strong>Add</strong> under the <strong>ACTIONS</strong> Menu in the top-right under <strong>Configuration/Policy/Endpoint Groups/Actions Menu (top-right)/Add</strong></p></li>
-</ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>To proceed with manual endpoint group creation, begin by clicking Add under the ACTIONS Menu in the top-right under Configuration/Policy/Endpoint Groups/Actions Menu (top-right)/Add</p>
+</div>
 <p><img alt="Add Enpoint Group" src="_images/lab3-add-endpoint-group.png" /><br />
 <em>Fig. Add Enpoint Group</em></p>
 <ol class="arabic simple" start="3">
@@ -623,7 +624,7 @@ document.write(`
 <em>Fig. VM Tag</em></p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Stay on the Endpoints page and repeat the process again tp add Workload02, you will have two workloads in this Endpoint Group!</p>
+<p>Stay on the Endpoints page and repeat the process again to add Workload02, you will have two workloads in this Endpoint Group!</p>
 </div>
 <div class="pst-scrollable-table-container"><table class="table">
 <thead>
@@ -743,11 +744,9 @@ document.write(`
 </tbody>
 </table>
 </div>
-<p><img alt="VM Tag" src="_images/lab3-vm-tag.png" /><br />
-<em>Fig. VM Tag</em></p>
 </section>
-<section id="id3">
-<h3>Expected Results<a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
+<section id="id2">
+<h3>Expected Results<a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
 <p>Verify the Endpoint Groups were created successfully, as shown in the following screenshot.</p>
 <p><img alt="Endpoint Groups" src="_images/lab3-endpoint-groups.png" /><br />
 <em>Fig. Endpoint Groups</em></p>
@@ -755,17 +754,17 @@ document.write(`
 </section>
 <section id="lab-3-3-create-firewall-rules">
 <h2>Lab 3.3 Create Firewall Rules<a class="headerlink" href="#lab-3-3-create-firewall-rules" title="Link to this heading">#</a></h2>
-<section id="id4">
-<h3>Description<a class="headerlink" href="#id4" title="Link to this heading">#</a></h3>
+<section id="id3">
+<h3>Description<a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
 <p>The goals of the rules that will be used to enforce the policy for this workshop, seek to achieve three things in this scenario:</p>
 <ul class="simple">
-<li><p>Allow workload01 and workload02 to SSH into workload03</p></li>
+<li><p>Allow <strong>workload01</strong> and <strong>workload02</strong> to SSH into <strong>workload03</strong></p></li>
 <li><p>Block everything else between these two workloads</p></li>
 <li><p>Allow everything else</p></li>
 </ul>
 </section>
-<section id="id5">
-<h3>Validate<a class="headerlink" href="#id5" title="Link to this heading">#</a></h3>
+<section id="id4">
+<h3>Validate<a class="headerlink" href="#id4" title="Link to this heading">#</a></h3>
 <ol class="arabic simple">
 <li><p>Under the <strong>Configuration</strong> menu, go to <strong>Policy/Rules</strong></p></li>
 </ol>
@@ -1154,8 +1153,8 @@ document.write(`
 </table>
 </div>
 </section>
-<section id="id6">
-<h3>Expected Results<a class="headerlink" href="#id6" title="Link to this heading">#</a></h3>
+<section id="id5">
+<h3>Expected Results<a class="headerlink" href="#id5" title="Link to this heading">#</a></h3>
 <p>When finished, you should see four rules like in the screenshot below.</p>
 <p><img alt="Rule List" src="_images/lab3-rule-list.png" /><br />
 <em>Fig. Rule List</em></p>
@@ -1163,26 +1162,26 @@ document.write(`
 </section>
 <section id="lab-3-4-create-firewall-policy">
 <h2>Lab 3.4 Create Firewall Policy<a class="headerlink" href="#lab-3-4-create-firewall-policy" title="Link to this heading">#</a></h2>
+<section id="id6">
+<h3>Description<a class="headerlink" href="#id6" title="Link to this heading">#</a></h3>
+</section>
 <section id="id7">
-<h3>Description<a class="headerlink" href="#id7" title="Link to this heading">#</a></h3>
+<h3>Validate<a class="headerlink" href="#id7" title="Link to this heading">#</a></h3>
 </section>
 <section id="id8">
-<h3>Validate<a class="headerlink" href="#id8" title="Link to this heading">#</a></h3>
-</section>
-<section id="id9">
-<h3>Expected Results<a class="headerlink" href="#id9" title="Link to this heading">#</a></h3>
+<h3>Expected Results<a class="headerlink" href="#id8" title="Link to this heading">#</a></h3>
 </section>
 </section>
 <section id="lab-3-5">
 <h2>Lab 3.5<a class="headerlink" href="#lab-3-5" title="Link to this heading">#</a></h2>
+<section id="id9">
+<h3>Description<a class="headerlink" href="#id9" title="Link to this heading">#</a></h3>
+</section>
 <section id="id10">
-<h3>Description<a class="headerlink" href="#id10" title="Link to this heading">#</a></h3>
+<h3>Validate<a class="headerlink" href="#id10" title="Link to this heading">#</a></h3>
 </section>
 <section id="id11">
-<h3>Validate<a class="headerlink" href="#id11" title="Link to this heading">#</a></h3>
-</section>
-<section id="id12">
-<h3>Expected Results<a class="headerlink" href="#id12" title="Link to this heading">#</a></h3>
+<h3>Expected Results<a class="headerlink" href="#id11" title="Link to this heading">#</a></h3>
 </section>
 </section>
 </section>
@@ -1258,28 +1257,28 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#expected-results">Expected Results</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lab-3-2-configure-endpoints">Lab 3.2 Configure Endpoints</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Description</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Validate</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Expected Results</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lab-3-2-configure-endpoint-groups">Lab 3.2 Configure Endpoint Groups</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">Overview</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Validate</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Expected Results</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lab-3-3-create-firewall-rules">Lab 3.3 Create Firewall Rules</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Description</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Validate</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">Expected Results</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Description</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Validate</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Expected Results</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lab-3-4-create-firewall-policy">Lab 3.4 Create Firewall Policy</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">Description</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">Validate</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">Expected Results</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">Description</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">Validate</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">Expected Results</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lab-3-5">Lab 3.5</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">Description</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">Validate</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id12">Expected Results</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">Description</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">Validate</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">Expected Results</a></li>
 </ul>
 </li>
 </ul>
