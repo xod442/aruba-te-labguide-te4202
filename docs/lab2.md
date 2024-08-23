@@ -128,7 +128,7 @@ _Fig. Underlay Created_
  
 ### Expected Results  
 
-1. To verify the underlay use the **Underlays Tab**, and then use the embedded **CLI Command Tool** to verify the loopback interfaces and confirm the underlay routing tables have been established.  
+1. You can see the underlay exists in the **Underlays Tab** above, use the embedded **CLI Command Tool** to verify the loopback interfaces and confirm the underlay routing tables have been established.  
 
 ![Show Commands Menu](images/lab2-show-commands-menu.png)  
 _Fig. Show Commands Menu_  
@@ -141,7 +141,7 @@ _Fig. Show Commands Menu_
 - ``show ip ospf routes``  
 
 ```{note}
-Run each command individually for best results.  
+Run each command individually for best results.  Do not truncate commands.
 
 Examine the results of the commands. You just enabled OSPF underlay routing!
 ```  
@@ -163,7 +163,7 @@ A **Virtual Network Identifier (VNI)** is mapped to traditional VLAN IDs. **VXLA
 This is very complex configuration. The AFC makes it very easy.
 ```  
 
-Bearing all this in mind, this task will have you use the **AFC Overlay Configuration Workflow** to implement iBGP settings using a private Autonomous System Number (ASN) to establish VTEPs. VTEP IP addresses will be assigned using a subnetwork address range that you’ll define. Finally, iBGP neighbor relationships will be verified using the AFC CLI Command Processor.  
+Bearing all this in mind, this task will have you use the **AFC Overlay Configuration Workflow** to implement iBGP settings using a private Autonomous System Number (ASN) to establish VTEPs. VTEP IP addresses will be assigned using a pre-defined IP address range. Finally, iBGP neighbor relationships will be verified using the AFC CLI Command Processor.  
 
 ### Validate   
 
@@ -172,9 +172,7 @@ Bearing all this in mind, this task will have you use the **AFC Overlay Configur
 ![Configure Overlays](images/lab2-configure-overlays.png)  
 _Fig. Configure Overlays_  
 
-```{note}
-If the Overlay Configuration workflow does not automatically display, use the following menus:  Configuration/Routing/VRF/default(three dots)/Overlays/Action Menu/Add  
-``` 
+
 
 2. In the Overlay Configuration Workflow, configure the following parameters for each page.  
 
@@ -198,9 +196,9 @@ _Fig. Overlay Workflow_
 |---|---|
 | Step 3:  iBGP Settings ||
 | Spine-Leaf ASN | 65000.0 ***default setting, ASPlain notation*** |
-| Route Reflector Servers | Select **LGXX-Spine** from the drop-down |
-| Leaf Group Name | leaf ***default setting*** |  
-| Spine Group | spine-RR ***default setting*** |  
+| Route Reflector Servers | Select **LG[LG]-Spine** from the drop-down |
+| Leaf Group Name | leaf  |  
+| Spine Group | spine-RR  |  
 | Leave all other default settings and click **NEXT** ||  
 
 |||
@@ -337,6 +335,12 @@ _Fig. Create VRF_
 | Route Target Ext-Community | 65001:1 |  
 | Address Family | EVPN |  
 | Click **ADD** to add the entry to the table||  
+```{note}
+Stay on the same page!
+```
+
+|||  
+|---|---|  
 | ***Create a second Route Target Entry using the following parameters*** ||  
 | Route Target Mode | both |  
 | Route Target Ext-Community | 65001:2 |  
@@ -359,7 +363,7 @@ _Fig. Overlay VRF Created_
 ## Lab 2.6 - Create VLAN Interfaces
 
 ### Description  
-Now that we have the newly created Overlay VRF, we will add VLAN interface to it.  
+Now that we have the newly created Overlay VRF, we will add VLAN interfaces to it.  
 
 ### Validate  
 1. Click the _three green dots_ on the left-hand side of the **Overlay VRF** you created called **over** and select **IP Interfaces**.  
@@ -463,3 +467,10 @@ During this short lab, you used the highly automated AFC workflows to do the fol
 - Created VLAN Interfaces for VLANs that we will test out later on
 
 The AFC provides built in workflows to automate normally complex tasks.
+
+## Lab 2 Learninig Check
+
+- The underlay OSPF network carries advertisments for each switches loopback **IP** address
+- The overlay network is used to extwnd layer 2 networks beyond router boundries
+- Layer 2 networks are assigned a **virtual network identifier** or **VNI**
+- Different layer 2 networks can communicate with others via a Layer 3 VNI

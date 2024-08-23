@@ -16,7 +16,7 @@ The first step is to Configure the VRFs to sync with the Policy Service Manager 
 ![Distributed Services Menu](images/lab3-distributed-services-menu.png)  
 _Fig. Distributed Services Menu_  
 
-2. Click **Configure VRFs** to jump to the VRFs page under **Configuration/Routing**  
+2. Click **Configure VRFs** to navigate to the VRFs page under **Configuration/Routing**  
 
 3. In the Configure VRFs page, within the right-hand pane for Distributed Services, choose **dsa/over** as the selected VRF in the **Distributed Services Setup** drop-down, then select **Configure Networks** just below the VRF selection drop-down menu
 
@@ -79,13 +79,13 @@ The command to execute against the leaf switches is:
 - ``show vlan``  
 - VLANs 10 & 20 should be listed  
 
-## Lab 3.2 Configure Endpoints  
+## Lab 3.2 Configure Endpoint Groups  
 
-### Description  
+### Overview 
 Endpoint group objects represent source and destination IP addresses referenced in firewall rules that can represent one or multiple devices. **Dynamic** endpoint groups can be **auto-populated** based on the assignment of **vSphere Tags** to VMs identified through AFC’s vCenter integration along with the PSM. All VMs assigned the same tag should be auto-populated as a member of the dynamic group when on a **distributed vSwitch**.  _When member IP addresses change or tag assignments are changed in vCenter, dynamic group objects are updated automatically_.  
 
 ```{note}
-In this workshop you will be using workloads that are learned from vSphere  
+In this workshop you will see workloads that are learned from vSphere. You can ignore them, and create your own! 
 ```  
 
 ### Validate  
@@ -98,7 +98,9 @@ _Fig. Configure Policy_
 Also accessed via Configuration/Policy/Endpoint Groups  
 ```  
 
-2. To proceed with manual endpoint group creation, begin by clicking **Add** under the **ACTIONS** Menu in the top-right under **Configuration/Policy/Endpoint Groups/Actions Menu (top-right)/Add**  
+```{note}
+To proceed with manual endpoint group creation, begin by clicking Add under the ACTIONS Menu in the top-right under Configuration/Policy/Endpoint Groups/Actions Menu (top-right)/Add
+```  
 
 ![Add Enpoint Group](images/lab3-add-endpoint-group.png)  
 _Fig. Add Enpoint Group_  
@@ -130,7 +132,7 @@ _Fig. Add Enpoint Group_
 _Fig. VM Tag_  
 
 ```{note}
-Stay on the Endpoints page and repeat the process again tp add Workload02, you will have two workloads in this Endpoint Group!  
+Stay on the Endpoints page and repeat the process again to add Workload02, you will have two workloads in this Endpoint Group!  
 ```  
 
 |||
@@ -174,8 +176,6 @@ _Fig. Web Server EPG_
 | Scroll down and click **Add** ||  
 | On the Summary page, verify the settings, then click **Apply** to save the configuration. |  
 
-![VM Tag](images/lab3-vm-tag.png)  
-_Fig. VM Tag_  
 
 ### Expected Results  
 
@@ -189,7 +189,7 @@ _Fig. Endpoint Groups_
 ### Description  
 The goals of the rules that will be used to enforce the policy for this workshop, seek to achieve three things in this scenario:  
 
-- Allow workload01 and workload02 to SSH into workload03  
+- Allow **workload01** and **workload02** to SSH into **workload03**  
 - Block everything else between these two workloads  
 - Allow everything else
 
