@@ -1,4 +1,4 @@
-# Lab 3 - Create and Deploy a Policy  
+# Lab 3 - Create EPG's and Deploy a Policy  
 
 ## Lab Overview
 Lab time:  30 minutes  
@@ -338,9 +338,62 @@ _Fig. Rule List_
 
 ## Lab 3.4 Create Firewall Policy  
 
-### Description  
+### Description 
+
+Now that the rules are in place, create a Policy to enforce those rules, showcasing the power of the CX10K to apply stateful firewall rules at scale and effectively govern east-west traffic.
 
 ### Validate  
+1.  In the **Configuration Menu**, go to **Policy/Policies**.
+
+```{note}
+Also accessed via the ‘Guided Setup Pane/Distributed Services Tab/Configure Policy’
+```
+2.  Under the Actions Menu, select **Add** to create a policy and configure the following parameters:
+
+![Policy](images/pol1.png)  
+_Fig. Policy_  
+
+|||  
+|---|---|  
+| Step 1. Name ||  
+| Name | ``dsa-ingress-policy`` |     
+| Click **NEXT** to continue ||  
+
+|||  
+|---|---|  
+| Step 2. Policies ||  
+| Type | ``distributed firewall`` |     
+| Click **NEXT** to continue ||  
+
+Step 3.
+
+Add rules to the policy by using the **Actions** menu and select **Add**. You will add existing rules to this policy, make sure they are in the correct order.
+
+Using the arrows on the left move the rules into the correct order. Be sure to move the allow-all rule to the bottom of the sequence (rule #4)
+
+Click **NEXT** to continue
+
+
+![Arange Rules](images/pol2.png)  
+_Fig. Arange Rules_  
+
+
+3. Add the enforcer information.
+
+![Arange Rules](images/pol3.png)  
+_Fig. Enforcers_  
+
+|||  
+|---|---|  
+| Step 1. Name ||  
+| Faric | ``dsa`` |
+| Policy Distribution Type | ``leaf`` |
+| Direction | ``ingress`` |
+| VRF | ``over`` |
+| Networks | ``Pick both vlan 10 & 20`` |
+| Click **ADD** , next to the **CLEAR** button |    
+| Click **NEXT** and **APPLY** ||  
+
 
 ### Expected Results  
 
