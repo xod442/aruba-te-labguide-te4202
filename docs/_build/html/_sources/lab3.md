@@ -457,5 +457,11 @@ _Fig. Policies_
 
 ## Lab 3 Summary
 
+In this lab you redirected vlan 10 and 20 to be examined by the DPU chips on the HPE Aruba Networking CX10K switch. You have to create endpoint groups and add VMs to them. Finally, you created rules and policies to limit traffic flow between the two endpoint groups.
+
 ## Lab 3 Learning Check
 
+- Endpoint Groups are just logical containers for sever VMs with a similar function.
+- Ingress is for traffic leaving the DPU
+- Egrees is for traffic coming into the DPU.
+- Rules are added to policies, a rule can belong to more than one policy.
