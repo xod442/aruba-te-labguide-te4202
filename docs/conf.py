@@ -7,8 +7,8 @@
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
 project = 'Spine-Leaf-Workshop-Docs'
-copyright = '2024, Spint-Leaf-Workshop'
-author = 'Frey'
+copyright = '2024, Spine-Leaf-Workshop'
+author = 'General'
 release = '0.1'
 
 # -- General configuration ---------------------------------------------------
