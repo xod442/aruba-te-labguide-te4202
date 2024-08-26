@@ -1,5 +1,9 @@
 ![Lab Overview](images/hpe-logo2.svg)
 
+![Disclosure](images/disclose.png)
+_Fig. Disclosure_
+
+
 <h1>HPE Aruba Networking CX10K Spine/Leaf Workshop</h1>
 
 # Lab Overview
@@ -14,3 +18,4 @@ In this workshop, students will have the opportunity to access two of these inno
 1. Use Aruba Fabric Composer (AFC) to configure a simple Layer 3 datacenter fabric with Ethernet VPN (EVPN) - Virtual Extensible LAN (VXLAN) and Symmetric Integrated Routing and Bridging (IRB) 
 2. Observe the integration between VMware vSphere and configure AMD's Pensando Policy Service Manager (PSM) 
 3. Create, deploy, and test Aruba CX 10000 (CX10K) switch traffic flow policies. 
+
