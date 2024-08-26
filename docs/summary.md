@@ -10,7 +10,7 @@ This hands on lab demonstrates how to get different layer 2 vlans to communicate
 
 We would love to hear from you and gather your feedback to help us improve future labs.  Please use the survey below to provide your feedback:  
 
-https://forms.office.com/r/v9zvNzw8zc  
+https://forms.office.com/r/v9zvNZw8zc  
 
 
 Thank you for your participation and we hope to see you in future training sessions.
