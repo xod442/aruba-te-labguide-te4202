@@ -350,7 +350,7 @@ document.write(`
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#expected-results">Expected Results</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lab-4-3-modify-the-egress-policy-with-the-new-rule">Lab 4.3 Modify the egress policy with the new rule</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lab-4-4-modify-the-egress-policy-with-the-new-rule">Lab 4.4 Modify the egress policy with the new rule</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lab-4-4-modify-the-ingress-policy-with-the-new-rule">Lab 4.4 Modify the ingress policy with the new rule</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lab-4-5-test-new-rule">Lab 4.5 Test new rule</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Expected Results</a></li>
 </ul>
@@ -615,8 +615,8 @@ Enter <strong>sudo ip route add 10.0.10.0/24 via 10.0.20.1</strong> (password: a
 <p><img alt="rule-position" src="_images/image13.png" /><br />
 <em>Fig. Rule Position</em></p>
 </section>
-<section id="lab-4-4-modify-the-egress-policy-with-the-new-rule">
-<h2>Lab 4.4 Modify the egress policy with the new rule<a class="headerlink" href="#lab-4-4-modify-the-egress-policy-with-the-new-rule" title="Link to this heading">#</a></h2>
+<section id="lab-4-4-modify-the-ingress-policy-with-the-new-rule">
+<h2>Lab 4.4 Modify the ingress policy with the new rule<a class="headerlink" href="#lab-4-4-modify-the-ingress-policy-with-the-new-rule" title="Link to this heading">#</a></h2>
 <ol class="arabic simple">
 <li><p>Navigate to Configuration/Policy/Policies</p></li>
 <li><p>Select the <strong>ingress</strong> policy and from the <strong>Actions</strong> menu choose edit.</p></li>
@@ -636,7 +636,7 @@ Enter <strong>sudo ip route add 10.0.10.0/24 via 10.0.20.1</strong> (password: a
 <ol class="arabic simple" start="5">
 <li><p>Make sure the rules appear like the next diagram shows. The allow SSH rules must be <strong>at the top</strong> of the rule list. Click <strong>APPLY</strong>.</p></li>
 </ol>
-<p><img alt="rule-position" src="_images/image17.png" /><br />
+<p><img alt="rule-position" src="_images/image13.png" /><br />
 <em>Fig. Rule Position</em></p>
 </section>
 <section id="lab-4-5-test-new-rule">
@@ -645,14 +645,15 @@ Enter <strong>sudo ip route add 10.0.10.0/24 via 10.0.20.1</strong> (password: a
 <li><p>Return to the SSH sessions that have been established to each workload.</p></li>
 <li><p>Once logged into <strong>Workload03</strong> try to ping <strong>10.0.10.101</strong>, this should fail. Use CRTL+C to exit the ping.</p></li>
 </ol>
-<p><img alt="ping-fails" src="_images/image18.png" /><br />
+<p><img alt="ping-fails" src="_images/image17.png" /><br />
 <em>Fig. Ping Fails</em></p>
 <ol class="arabic simple" start="3">
 <li><p>From <strong>workload03</strong> try to SSH to <strong>Workload01</strong>.</p></li>
 </ol>
 <section id="id2">
 <h3>Expected Results<a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
-<p><img alt="ssh-works" src="_images/image19.png" /><br />
+<p>You can see that the ssh session is succesful. If not, go back and check the rule order.</p>
+<p><img alt="ssh-works" src="_images/image18.png" /><br />
 <em>Fig. ssh works</em></p>
 </section>
 </section>
@@ -738,7 +739,7 @@ Enter <strong>sudo ip route add 10.0.10.0/24 via 10.0.20.1</strong> (password: a
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#expected-results">Expected Results</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lab-4-3-modify-the-egress-policy-with-the-new-rule">Lab 4.3 Modify the egress policy with the new rule</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lab-4-4-modify-the-egress-policy-with-the-new-rule">Lab 4.4 Modify the egress policy with the new rule</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lab-4-4-modify-the-ingress-policy-with-the-new-rule">Lab 4.4 Modify the ingress policy with the new rule</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lab-4-5-test-new-rule">Lab 4.5 Test new rule</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Expected Results</a></li>
 </ul>

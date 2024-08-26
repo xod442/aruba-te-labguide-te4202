@@ -163,7 +163,7 @@ _Fig. Select Rule_
 ![rule-position](images/image13.png)  
 _Fig. Rule Position_
 
-## Lab 4.4 Modify the egress policy with the new rule
+## Lab 4.4 Modify the ingress policy with the new rule
 
 1. Navigate to Configuration/Policy/Policies 
 
@@ -184,7 +184,7 @@ _Fig. Select Rule_
 
 5. Make sure the rules appear like the next diagram shows. The allow SSH rules must be **at the top** of the rule list. Click **APPLY**.
 
-![rule-position](images/image17.png)  
+![rule-position](images/image13.png)  
 _Fig. Rule Position_
 
 ## Lab 4.5 Test new rule
@@ -193,14 +193,16 @@ _Fig. Rule Position_
 
 2. Once logged into **Workload03** try to ping **10.0.10.101**, this should fail. Use CRTL+C to exit the ping.
 
-![ping-fails](images/image18.png)  
+![ping-fails](images/image17.png)  
 _Fig. Ping Fails_
 
 3. From **workload03** try to SSH to **Workload01**. 
 
 ### Expected Results 
 
-![ssh-works](images/image19.png)  
+You can see that the ssh session is succesful. If not, go back and check the rule order.
+
+![ssh-works](images/image18.png)  
 _Fig. ssh works_
 
 
