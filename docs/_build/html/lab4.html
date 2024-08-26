@@ -334,11 +334,25 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lab-overview">Lab Overview</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lab-4-1-configure-the-overlay">Lab 4.1 - Configure the Overlay</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lab-overview">Lab Overview</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#description">Description</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#validate">Validate</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#expected-results">Expected Results</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#validate">Validate</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lab-4-1-test-firewall-rules">Lab 4.1 - Test Firewall Rules</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ssh-for-workload-2-and-3">SSH for workload 2 and 3</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lab-4-2-permit-ssh-from-database-to-web-endpoint-group">Lab 4.2 - Permit ssh from database to web endpoint group</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Validate</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-the-allow-db-ssh-web-rule">Create the allow-db-ssh-web rule</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#expected-results">Expected Results</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lab-4-3-modify-the-egress-policy-with-the-new-rule">Lab 4.3 Modify the egress policy with the new rule</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lab-4-4-modify-the-egress-policy-with-the-new-rule">Lab 4.4 Modify the egress policy with the new rule</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lab-4-5-test-new-rule">Lab 4.5 Test new rule</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Expected Results</a></li>
 </ul>
 </li>
 </ul>
@@ -357,11 +371,17 @@ document.write(`
 <section id="lab-overview">
 <h2>Lab Overview<a class="headerlink" href="#lab-overview" title="Link to this heading">#</a></h2>
 <p>Lab time:  30 minutes</p>
+<section id="description">
+<h3>Description<a class="headerlink" href="#description" title="Link to this heading">#</a></h3>
 <p>In preparing for this lab, a pair of distributed virtual switches have been created. One connects to the <strong>Leaf1A-10K</strong> and the other connects to <strong>Leaf1B-10K</strong>. Proper connections have been made in advance. WL01 and WL02 are in vlan 10 port group, and WL03 is in vlan 20 port group.
 At this point of the lab. All traffic between the endpoint groups should be blocked except ssh from <strong>workload01</strong> &amp; <strong>workload02</strong> to <strong>workload03</strong>. Open up a SSH session on all of the workloads.</p>
 </section>
-<section id="lab-4-1-configure-the-overlay">
-<h2>Lab 4.1 - Configure the Overlay<a class="headerlink" href="#lab-4-1-configure-the-overlay" title="Link to this heading">#</a></h2>
+</section>
+<section id="validate">
+<h2>Validate<a class="headerlink" href="#validate" title="Link to this heading">#</a></h2>
+</section>
+<section id="lab-4-1-test-firewall-rules">
+<h2>Lab 4.1 - Test Firewall Rules<a class="headerlink" href="#lab-4-1-test-firewall-rules" title="Link to this heading">#</a></h2>
 <ol class="arabic simple">
 <li><p>On the desktop, in the windows search bar (bottom left of screen) enter CMD to open a command window. Use SSH to connect to <strong>all</strong> the workloads out-of-band-management interface.</p></li>
 </ol>
@@ -404,14 +424,236 @@ At this point of the lab. All traffic between the endpoint groups should be bloc
 <p><code class="docutils literal notranslate"><span class="pre">C:\Users\Admin&gt;</span> <span class="pre">ssh</span> <span class="pre">arubatm&#64;10.250.2LG.201</span> </code>
 <code class="docutils literal notranslate"><span class="pre">C:\Users\Admin&gt;</span> <span class="pre">ssh</span> <span class="pre">arubatm&#64;10.250.2LG.202</span> </code>
 <code class="docutils literal notranslate"><span class="pre">C:\Users\Admin&gt;</span> <span class="pre">ssh</span> <span class="pre">arubatm&#64;10.250.2LG.203</span> </code></p>
-<section id="description">
-<h3>Description<a class="headerlink" href="#description" title="Link to this heading">#</a></h3>
+<p><img alt="ssh sessions" src="_images/image2.png" /><br />
+<em>Fig. 3 SSH sessions</em></p>
+<ol class="arabic simple" start="2">
+<li><p>Once logged into <strong>Workload01</strong>. Try to ping <strong>10.0.20.101</strong>, this should fail. Use <strong>CRTL+C</strong> to exit the ping.</p></li>
+</ol>
+<p><img alt="ssh works" src="_images/image3.png" /><br />
+<em>Fig. SSH Succeeded</em></p>
+<ol class="arabic simple" start="3">
+<li><p>Try to <strong>ssh</strong> to <strong>10.0.20.101</strong>.  (ssh <a class="reference external" href="mailto:arubatm&#37;&#52;&#48;10&#46;0&#46;20&#46;101">arubatm<span>&#64;</span>10<span>&#46;</span>0<span>&#46;</span>20<span>&#46;</span>101</a>)</p></li>
+</ol>
+<p><img alt="ssh works" src="_images/image4.png" /><br />
+<em>Fig. SSH Succeeded</em></p>
+<p><code class="docutils literal notranslate"><span class="pre">If</span> <span class="pre">your</span> <span class="pre">ssh</span> <span class="pre">fails,</span> <span class="pre">check</span> <span class="pre">the</span> <span class="pre">routes</span> <span class="pre">in</span> <span class="pre">the</span> <span class="pre">workstations!</span></code></p>
+<ol class="arabic simple" start="4">
+<li><p>Check workload 1:
+arubatm&#64;workload-v10-101:
+<strong>ip route</strong></p></li>
+</ol>
+<p><img alt="ssh works" src="_images/image5.png" /><br />
+<em>Fig. ip routes</em></p>
+<p><strong>Workload-v10-101</strong> seems to have a route to the 10.0.20.0/24 network. If the route is not there, add it.
+Enter <strong>sudo ip route add 10.0.20.0/24 via 10.0.10.1</strong> (password: admin)</p>
+<ol class="arabic simple" start="5">
+<li><p>Check workload 2:
+arubatm&#64;workload-v10-102:
+ip route</p></li>
+</ol>
+<p><img alt="ssh works" src="_images/image6.png" /><br />
+<em>Fig. ip routes</em></p>
+<p><strong>Workload-v10-102</strong> needs to have a route to get to the <strong>10.0.20.0/24a</strong> network.
+If it’s not there, add it. Enter <strong>sudo ip route add 10.0.20.0/24 via 10.0.10.1</strong> (password: admin)</p>
+<ol class="arabic simple" start="6">
+<li><p>Check workload 3:
+arubatm&#64;workload-v20-101:
+ip route</p></li>
+</ol>
+<p><strong>Workload-v12-101</strong> needs to have a route to get back to the <strong>10.0.10.0/24</strong> network.
+Enter <strong>sudo ip route add 10.0.10.0/24 via 10.0.20.1</strong> (password: admin)</p>
+<p><img alt="ssh works" src="_images/image7.png" /><br />
+<em>Fig. ip routes</em></p>
+<section id="ssh-for-workload-2-and-3">
+<h3>SSH for workload 2 and 3<a class="headerlink" href="#ssh-for-workload-2-and-3" title="Link to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p>Move to <strong>Workload02</strong>. Try to ssh to <strong>10.0.20.101</strong> this should succeed.</p></li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The policy created earlier in the lab allows SSH from the WEB endpoint group to the DATABASE endpoint group. It BLOCKS all other traffic.</p>
+</div>
+<ol class="arabic simple" start="2">
+<li><p>Move to <strong>Workload03</strong>. Try to ssh to <strong>10.0.10.101</strong> this should fail. Use CRTL+C to exit. There is no rule to allow ssh from the database server endpoint group.</p></li>
+</ol>
 </section>
-<section id="validate">
-<h3>Validate<a class="headerlink" href="#validate" title="Link to this heading">#</a></h3>
+</section>
+<section id="lab-4-2-permit-ssh-from-database-to-web-endpoint-group">
+<h2>Lab 4.2 - Permit ssh from database to web endpoint group<a class="headerlink" href="#lab-4-2-permit-ssh-from-database-to-web-endpoint-group" title="Link to this heading">#</a></h2>
+<p>A rule will have to be added to our ingress and egress policies to permit SSH from the <strong>DATABASE</strong> endpoint group to the <strong>WEB</strong> endpoint group.</p>
+<section id="id1">
+<h3>Validate<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p>Go back to the Aruba Fabric Composer window and navigate to <strong>Configuration/Policy/Rules</strong></p></li>
+</ol>
+<p><img alt="rules" src="_images/image8.png" /><br />
+<em>Fig. Rules</em></p>
+</section>
+<section id="create-the-allow-db-ssh-web-rule">
+<h3>Create the allow-db-ssh-web rule<a class="headerlink" href="#create-the-allow-db-ssh-web-rule" title="Link to this heading">#</a></h3>
+<p><em>Fig. Rule Worklow</em></p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p></p></th>
+<th class="head"><p></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Step 1: Name</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>Name</p></td>
+<td><p>allow-ssh-db-web</p></td>
+</tr>
+<tr class="row-even"><td><p>Description</p></td>
+<td><p>Allow SSH between Database and Web Servers</p></td>
+</tr>
+<tr class="row-odd"><td><p>Click <strong>NEXT</strong> to continue</p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p></p></th>
+<th class="head"><p></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Step 2: Settings</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>Type</p></td>
+<td><p>Layer 3</p></td>
+</tr>
+<tr class="row-even"><td><p>Action</p></td>
+<td><p>Allow <em><strong>(default setting)</strong></em></p></td>
+</tr>
+<tr class="row-odd"><td><p>Click <strong>NEXT</strong> to continue</p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p></p></th>
+<th class="head"><p></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Step 3: Endpoint Groups</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>Source Endpoint Group</p></td>
+<td><p>Database-Servers</p></td>
+</tr>
+<tr class="row-even"><td><p>Destination Endpoint Group</p></td>
+<td><p>Web-Servers</p></td>
+</tr>
+<tr class="row-odd"><td><p>Click <strong>NEXT</strong> to continue</p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p></p></th>
+<th class="head"><p></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Step 4: Applications and Service Qualifiers</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>Applications</p></td>
+<td><p><em><strong>leave empty</strong></em></p></td>
+</tr>
+<tr class="row-even"><td><p>Service Qualifiers</p></td>
+<td><p>SSH <em><strong>(type ssh)</strong></em></p></td>
+</tr>
+<tr class="row-odd"><td><p>Click <strong>NEXT</strong> to continue</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>Review the Summary and click <strong>Apply</strong></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
 </section>
 <section id="expected-results">
-<h3>Expected Results<a class="headerlink" href="#expected-results" title="Link to this heading">#</a></h3>
+<h2>Expected Results<a class="headerlink" href="#expected-results" title="Link to this heading">#</a></h2>
+<p>On the screen you will see a new rule. Next task is to add this rule to the ingress and egress policy.</p>
+<p><img alt="new-rule" src="_images/image9.png" /><br />
+<em>Fig. New Rule</em></p>
+</section>
+<section id="lab-4-3-modify-the-egress-policy-with-the-new-rule">
+<h2>Lab 4.3 Modify the egress policy with the new rule<a class="headerlink" href="#lab-4-3-modify-the-egress-policy-with-the-new-rule" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p>Navigate to Configuration/Policy/Policies</p></li>
+<li><p>Select the <strong>egress</strong> policy and from the <strong>Actions</strong> menu choose edit.</p></li>
+</ol>
+<p><img alt="edit-policy" src="_images/image10.png" /><br />
+<em>Fig. Edit Egress Policy</em></p>
+<ol class="arabic simple" start="3">
+<li><p>Click on the <strong>rules</strong> tab at the top of the dialog. Then <strong>Add/Existing</strong>.</p></li>
+</ol>
+<p><img alt="edit-policy" src="_images/image11.png" /><br />
+<em>Fig. Add Existing Rule</em></p>
+<ol class="arabic simple" start="4">
+<li><p>Click on the <strong>allow-ssh-db-web</strong> rule and click <strong>Apply</strong>.</p></li>
+</ol>
+<p><img alt="select-rule" src="_images/image12.png" /><br />
+<em>Fig. Select Rule</em></p>
+<ol class="arabic simple" start="5">
+<li><p>Make sure the rules appear like the next diagram shows. The allow SSH rules must be <strong>at the top</strong> of the rule list. Click <strong>APPLY</strong>.</p></li>
+</ol>
+<p><img alt="rule-position" src="_images/image13.png" /><br />
+<em>Fig. Rule Position</em></p>
+</section>
+<section id="lab-4-4-modify-the-egress-policy-with-the-new-rule">
+<h2>Lab 4.4 Modify the egress policy with the new rule<a class="headerlink" href="#lab-4-4-modify-the-egress-policy-with-the-new-rule" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p>Navigate to Configuration/Policy/Policies</p></li>
+<li><p>Select the <strong>ingress</strong> policy and from the <strong>Actions</strong> menu choose edit.</p></li>
+</ol>
+<p><img alt="edit-policy" src="_images/image14.png" /><br />
+<em>Fig. Edit Egress Policy</em></p>
+<ol class="arabic simple" start="3">
+<li><p>Click on the <strong>rules</strong> tab at the top of the dialog. Then <strong>Add/Existing</strong>.</p></li>
+</ol>
+<p><img alt="edit-policy" src="_images/image15.png" /><br />
+<em>Fig. Add Existing Rule</em></p>
+<ol class="arabic simple" start="4">
+<li><p>Click on the <strong>allow-ssh-db-web</strong> rule and click <strong>Apply</strong>.</p></li>
+</ol>
+<p><img alt="select-rule" src="_images/image16.png" /><br />
+<em>Fig. Select Rule</em></p>
+<ol class="arabic simple" start="5">
+<li><p>Make sure the rules appear like the next diagram shows. The allow SSH rules must be <strong>at the top</strong> of the rule list. Click <strong>APPLY</strong>.</p></li>
+</ol>
+<p><img alt="rule-position" src="_images/image17.png" /><br />
+<em>Fig. Rule Position</em></p>
+</section>
+<section id="lab-4-5-test-new-rule">
+<h2>Lab 4.5 Test new rule<a class="headerlink" href="#lab-4-5-test-new-rule" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p>Return to the SSH sessions that have been established to each workload.</p></li>
+<li><p>Once logged into <strong>Workload03</strong> try to ping <strong>10.0.10.101</strong>, this should fail. Use CRTL+C to exit the ping.</p></li>
+</ol>
+<p><img alt="ping-fails" src="_images/image18.png" /><br />
+<em>Fig. Ping Fails</em></p>
+<ol class="arabic simple" start="3">
+<li><p>From <strong>workload03</strong> try to SSH to <strong>Workload01</strong>.</p></li>
+</ol>
+<section id="id2">
+<h3>Expected Results<a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
+<p><img alt="ssh-works" src="_images/image19.png" /><br />
+<em>Fig. ssh works</em></p>
 </section>
 </section>
 </section>
@@ -480,11 +722,25 @@ At this point of the lab. All traffic between the endpoint groups should be bloc
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lab-overview">Lab Overview</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lab-4-1-configure-the-overlay">Lab 4.1 - Configure the Overlay</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lab-overview">Lab Overview</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#description">Description</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#validate">Validate</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#expected-results">Expected Results</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#validate">Validate</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lab-4-1-test-firewall-rules">Lab 4.1 - Test Firewall Rules</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ssh-for-workload-2-and-3">SSH for workload 2 and 3</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lab-4-2-permit-ssh-from-database-to-web-endpoint-group">Lab 4.2 - Permit ssh from database to web endpoint group</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Validate</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-the-allow-db-ssh-web-rule">Create the allow-db-ssh-web rule</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#expected-results">Expected Results</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lab-4-3-modify-the-egress-policy-with-the-new-rule">Lab 4.3 Modify the egress policy with the new rule</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lab-4-4-modify-the-egress-policy-with-the-new-rule">Lab 4.4 Modify the egress policy with the new rule</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lab-4-5-test-new-rule">Lab 4.5 Test new rule</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Expected Results</a></li>
 </ul>
 </li>
 </ul>
