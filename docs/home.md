@@ -1,7 +1,6 @@
 ![Lab Overview](images/hpe-logo2.svg)
 
 ![Disclosure](images/disclose.png)
-_Fig. Disclosure_
 
 
 <h1>HPE Aruba Networking CX10K Spine/Leaf Workshop</h1>
