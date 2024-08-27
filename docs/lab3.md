@@ -8,7 +8,7 @@ With all the systems in place, we can now leverage the various components to cre
 ## Lab 3.1 - Redirect VLANs to DSM  
 
 ### Description  
-The first step is to Configure the VRFs to sync with the Policy Service Manager that will utilize the defined networks.  
+The first step is to Configure the VRFs to sync with the Policy Service Manager that will utilize the defined networks..  
 
 ### Validate   
 1. In the Guided Setup Pane, switch from the **Network** tab to the **Distributed Services** tab.  _Be sure to switch over to Distributed Services from the Network Tab_!  
